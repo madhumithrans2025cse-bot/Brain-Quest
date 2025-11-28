@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Quest</title>
+    <link rel="stylesheet" href="BrainQuest.css">
+    <style>
+        body {
+            background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 45px;
+            font-weight: 700;
+        }
+
+        button {
+            margin-left: 8.5em;
+            width: 200px;
+            height: 80px;
+            align-items: center;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #21074a 0%, #d33bb7 100%, #21074a 0%);
+            color: #ffffff;
+            font-size: larger;
+        }
+
+        h1{
+        text-align: center;
+        margin-top: 20px;
+        font-size: 45px;
+        font-weight: 700;
+        color: yellow;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <script href="BrainQuest.js"></script>
+
+    <center>
+        <h1>Topic</h1>
+    </center>
+    <hr>
+    <h2>General Knowledge</h2>
+
+    <div>
+        <button onclick="Navi()">World Capitals</button>
+        <button>Science Facts</button>
+        <button>Current Affairs</button><br>
+    </div>
+    <hr>
+    <h2>Science & Technology</h2>
+
+    <div>
+        <button>Physics Basics</button>
+        <button>Chemistry Basics</button>
+        <button>Biology</button>
+    </div><br>
+    <hr>
+    <h2>Education & Learning</h2>
+
+    <div>
+        <button>Math Puzzles</button>
+        <button>English Grammar</button>
+        <button>Logical Reasoning</button>
+    </div>
+
+
+
+    <script>
+          
+        function Navi()
+        {
+            window.location.href = "Quiz.html";
+        }        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainQuest Quiz</title>
+    <style>
+        body {
+            background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #quiz {
+            background-color: azure;
+            padding: 14px 140px;
+            border-radius: 12px;
+            color: rgb(0, 0, 0);
+            width: 400px;
+            margin: auto;
+        }
+
+        #next {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: #2200ff;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .choice {
+            padding: 10px 15px;
+            margin: 10px 5px;
+            background-color: #392e82;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 45px;
+            font-weight: 700;
+            color: yellow;
+        }
+
+        #tle{
+            text-align: center;
+            margin-top: 20px;
+            font-size: 35px;
+            font-weight: 700;
+            color: rgb(255, 255, 255);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Quiz!</h1>
+    <hr>
+    <h2 id="tle">World Capitals</h2>
+    <hr>
+    <br>
+
+    <div id="quiz">
+        <h2 id="question">Question will appear here</h2>
+        <div id="choices"></div><br><br><br>
+        <button id="next">Next</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                q: "What is the capital of France?",
+                choices: ["Paris", "London", "Berlin", "Madrid"],
+                answer: "Paris"
+            },
+            {
+                q: "WWhich is the largest ocean in the world?",
+                choices: ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+                answer: "Pacific Ocean"
+            },
+            {
+                q: "Which country has the highest population??",
+                choices: ["China", "India", "USA", "Russia"],
+                answer: "India"
+            },
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedChoice = "";
+
+        const questionEl = document.getElementById("question");
+        const choicesEl = document.getElementById("choices");
+        const nextBtn = document.getElementById("next");
+
+        function showQuestion() {
+            const q = questions[currentQuestion];
+            questionEl.innerText = q.q;
+
+            choicesEl.innerHTML = "";
+            selectedChoice = "";
+
+            q.choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.className = "choice";
+                btn.innerText = choice;
+                btn.addEventListener("click", () => {
+                    selectedChoice = choice;
+
+                    Array.from(choicesEl.children).forEach(c => c.style.backgroundColor = "#2200ff");
+                    btn.style.backgroundColor = "#00aa00";
+                });
+                choicesEl.appendChild(btn);
+            });
+        }
+
+        nextBtn.addEventListener("click", () => {
+            if (!selectedChoice) {
+                alert("Please select an answer!");
+                return;
+            }
+
+            if (selectedChoice === questions[currentQuestion].answer) {
+                score++;
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion >= questions.length) {
+                alert(`Quiz Completed! Your score is ${score} / ${questions.length}`);
+                currentQuestion = 0;
+                score = 0;
+            }
+
+            showQuestion();
+        });
+
+        showQuestion();
+    </script>
+
+</body>
+
+</html>

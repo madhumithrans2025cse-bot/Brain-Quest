@@ -1,0 +1,24 @@
+body {
+    background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+button {
+    margin-left: 8.5em;
+    width: 200px;
+    height: 80px;
+    align-items: center;
+    border-radius: 10px;
+    background:linear-gradient(90deg, #21074a 0%, #d33bb7 100%, #21074a 0%);
+    color: #ffffff;
+    font-size: larger;
+}
